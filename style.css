@@ -1,0 +1,375 @@
+/*
+ Theme Name: Motaphoto
+ Theme URI: http://example.com/motaphoto
+ Author: Votre Nom
+ Author URI: http://example.com
+ Description: Une description de votre thème.
+ Version: 1.0
+ License: GNU General Public License v2 or later
+ License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain: motaphoto
+*/
+
+
+*{
+    font-family: 'Space Mono', monospace;
+}
+
+body{
+    margin: 0;
+    max-width: 1440px;
+}
+.site-navigation{
+    text-transform: uppercase;      
+    width: 400px;                            
+}
+
+.site-navigation ul {
+    display: flex;
+    justify-content: space-around;
+}
+.site-navigation ul li a:hover {
+    font-weight: bold; /* Rend le texte plus gras au survol */
+}
+
+.logo img{
+    width: 220px;
+    height: 15px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style-type: none; /* Enlève les puces des listes */
+}
+.featured-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.filters {
+    margin: 80px 146px 0 146px;
+}
+
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 28px 140px;
+}
+.photo-item {
+    position: relative;
+    width: calc(50% - 10px);
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.photo-wrapper {
+    position: relative;
+}
+.photo-item img{
+    object-fit: cover;
+}
+.gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.gallery-image img{
+    object-fit: cover;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.photo-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.icon-fullscreen {
+    position: absolute;
+    top: 10px;  /* Espacement du haut */
+    right: 10px;  /* Espacement de la droite */
+}
+
+
+.icon-eye img, .icon-fullscreen img {
+    width: 24px;
+    height: 24px;
+}
+
+.photo-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.photo-title {
+    font-size: 14px;
+}
+
+.photo-category {
+    font-size: 12px;
+}
+
+#load-more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #D8D8D8;
+    color: black;
+    border-color:#D8D8D8;
+    border-radius: 2px ;
+    cursor: pointer;
+}
+
+#load-more:hover {
+    background-color: black; /* Change la couleur de fond en noir */
+    color: white;           /* Change la couleur du texte en blanc */
+}
+
+/* style single */
+#primary{
+    margin: 0 140px;
+}
+.related-titre{
+    margin: 0 140px;
+    text-transform: uppercase;
+    border-top:solid black;
+}
+
+.related-photos{
+    display: flex;
+    justify-content: center;
+    margin: 30px 140px 95px 140px;
+    gap: 10px;
+}
+.related-photos > div {
+    flex: 1 1 50%; /* Utilise flex-grow, flex-shrink et flex-basis */
+    /* Si vous ne voulez pas qu'ils grandissent ou rétrécissent, vous pouvez simplement utiliser */
+    width: 50%; /* Assure que chaque div prend exactement 50% */
+}
+
+.titre-photo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.titre-container {
+    width: 50%;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    border-bottom: solid;
+}
+.titre-container h2{
+    font-style: italic;
+    font-size: 66px;
+}
+
+.photo-container {
+    width: 45%;
+}
+
+.photo-image {
+    width: 100%;
+    height: auto;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+.contact-interesse {
+    display: flex;
+    align-items: baseline;
+}
+
+.btn {
+    background-color: #D8D8D8;
+    width: 272px;
+    height: 50px;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    margin-left: 90px;
+    transition: background-color 0.3s, color 0.3s; /* Ajout de transition pour un effet doux */
+}
+
+.btn:hover {
+    background-color: black; /* Couleur de fond au survol */
+    color: white; /* Couleur de texte au survol */
+}
+
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.navigation-link {
+    position: relative;
+    padding: 10px;
+}
+
+.thumbnail-preview {
+    display: none;
+    position: absolute;
+    bottom: 90%;
+    left: 97%;
+    transform: translateX(-50%);
+    width: 81px;
+    height: 71px;
+    z-index: 2;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+.thumbnail-preview img {
+    width: 100%; /* Fait que l'image prenne toute la largeur de la div */
+    height: 100%; /* Fait que l'image prenne toute la hauteur de la div */
+    object-fit: cover; /* Ajuste l'image pour couvrir toute la div sans perdre ses proportions */
+    position: absolute; /* Positionne l'image de manière absolue par rapport à sa div parent */
+    top: 0;
+    left: 0;
+}
+
+.navigation-link:hover .thumbnail-preview {
+    display: block;
+}
+
+.apparentees {
+    margin-top: 20px;
+}
+
+.apparentees-photo div {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.apparentees-photo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 600px;
+    height: 770px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* style du footer ***********************************************/
+
+    .site-footer {
+    background-color: #fff; /* Définir la couleur de fond en blanc */
+    height: 40px; /* Hauteur fixe de 40px */
+    display: flex; /* Utiliser Flexbox pour le layout */
+    align-items: center; /* Centrer les éléments verticalement */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    padding: 0 10px; /* Un peu de padding sur les côtés */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur et la hauteur */
+    border-top: solid black;
+}
+.footer-navigation ul {
+
+    padding: 0; /* Enlève le padding par défaut des listes */
+    margin: 0; /* Enlève la marge par défaut des listes */
+    display: flex; /* Utiliser Flexbox dans la liste */
+}
+.container{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-navigation ul {
+    list-style-type: none; /* Enlève les puces des listes */
+    padding: 0; /* Enlève le padding par défaut des listes */
+    margin: 0; /* Enlève la marge par défaut des listes */
+    display: flex; /* Utiliser Flexbox dans la liste */
+    
+}
+
+.footer-navigation li {
+    margin-right: 20px; /* Ajoute de la marge à droite de chaque lien */
+}
+
+/* style section filtre************************************/
+
+.filters select{
+    width: 260px;
+    height: 43px;
+    border-radius: 5px;
+    text-transform: uppercase;  
+}
+.photo-wrapper img{
+    width:100% ;
+    height: 495px;
+}
+.overlay img{
+    width: 15px;
+    height: 15px;
+}
+#sort-filter{
+    margin-left: 160px;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
