@@ -45,7 +45,7 @@
         <!-- Bloc à gauche -->
         <div class="contact-interesse">
             <p>Cette photo vous intéresse ? </p>
-            <button class="btn" id="contact-link" data-photo-id="<?php the_ID(); ?>">
+            <button class="btn" id="contact-link" data-photo-id="<?php the_ID(); ?>" data-reference="<?php the_field('reference'); ?>">
                 Contact
             </button>
         </div>
@@ -117,7 +117,7 @@
                 <div class="related-photo-item">
                     <div class="photo-wrapper">
                         <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('thumbnail', array('class' => 'photo-image')); ?>
+                            <?php the_post_thumbnail('full', array('class' => 'photo-image')); ?>
                             <div class="overlay">
                                 <a href="<?php the_permalink(); ?>" class="icon-eye">
                                     <img src="<?php echo get_template_directory_uri(); ?>/css/images/Icon_eye.png" alt="Voir les détails">
@@ -139,16 +139,4 @@
     }
     ?>
 </div>
-
-<!-- Préparation pour la modalité de contact -->
-
-
-<!-- Modale -->
-<div id="contactModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <?php echo do_shortcode('[contact-form-7 id="5adbf94" title="Formulaire de contact 1"]'); ?>
-    </div>
-</div>
-
 <?php get_footer(); ?>

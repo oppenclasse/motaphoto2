@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<h1 class="visually-hidden">Mota Photo</h1>
 
 <div class="photo-posts">
     <?php
@@ -13,14 +14,19 @@
     if ($photo_query->have_posts()) :
         while ($photo_query->have_posts()) : $photo_query->the_post();
             ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <?php
-                // Affichage de l'image à la une
-                if (has_post_thumbnail()) {
-                    the_post_thumbnail('full', array('class' => 'featured-image'));
-                }
-                ?>
-            </article>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <?php
+    // Affichage de l'image à la une
+    if (has_post_thumbnail()) {
+        $reference = get_field('reference'); // Assurez-vous que le champ s'appelle 'reference'
+        $categories = get_the_terms(get_the_ID(), 'categorie');
+        $categorie_names = $categories ? wp_list_pluck($categories, 'name') : [];
+        $data_category = esc_attr(implode(', ', $categorie_names));
+        the_post_thumbnail('full', array('class' => 'featured-image', 'data-reference' => $reference, 'data-category' => $data_category));
+    }
+    ?>
+</article>
+
             <?php
         endwhile;
         wp_reset_postdata();
@@ -64,5 +70,6 @@
 </div>
 
 <button id="load-more">Charger plus</button>
+
 
 <?php get_footer(); ?>

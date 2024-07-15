@@ -5,11 +5,18 @@ function motaphoto_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'motaphoto_enqueue_styles');
 
+// Initialiser le support des menus
+function custom_theme_setup() {
+    add_theme_support('menus');
+    register_nav_menu('primary', 'Menu principal');
+}
+add_action('after_setup_theme', 'custom_theme_setup');
+
 // Enregistrer les scripts et localiser l'URL AJAX
 function enqueue_custom_scripts() {
     wp_enqueue_style('theme-style', get_stylesheet_uri());
     wp_enqueue_script('jquery');
-    wp_enqueue_script('custom-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), null, true);
+    wp_enqueue_script('custom-functions', get_template_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
     wp_localize_script('custom-functions', 'ajax_params', array(
         'ajaxurl' => admin_url('admin-ajax.php')
     ));
@@ -59,22 +66,22 @@ function load_photos() {
                         the_post_thumbnail('full', array('class' => 'gallery-image')); // Affiche l'image à taille pleine
                     }
                     ?>
-                    <div class="overlay">
-                        <a href="<?php the_permalink(); ?>" class="icon-eye">
-                            <img src="<?php echo get_template_directory_uri(); ?>/css/images/Icon_eye.png" alt="View Details">
-                        </a>
-                        <a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>" class="icon-fullscreen"
-                            data-lightbox="gallery"
-                            data-ref="<?php echo esc_attr(get_field('reference')); ?>" 
-                            data-category="<?php
-                                $categories = get_the_terms(get_the_ID(), 'categorie');
-                                if (!empty($categories) && !is_wp_error($categories)) {
-                                    echo esc_attr(implode(', ', wp_list_pluck($categories, 'name')));
-                                }
-                            ?>" >
-                            <img src="<?php echo get_template_directory_uri(); ?>/css/images/Icon_fullscreen.png" alt="Full Screen">
-                        </a>
-                    </div>
+<?php
+$ref = get_field('reference');
+$category_names = wp_list_pluck(get_the_terms(get_the_ID(), 'categorie'), 'name');
+$ref_and_cat = '<span>' . esc_attr($ref) . '</span> <span>' . esc_attr(implode(', ', $category_names)) . '</span>';
+?>
+<div class="overlay">
+    <a href="<?php the_permalink(); ?>" class="icon-eye">
+        <img src="<?php echo get_template_directory_uri(); ?>/css/images/Icon_eye.png" alt="View Details">
+    </a>
+    <a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>" class="icon-fullscreen"
+        data-lightbox="gallery"
+        data-reference="<?php echo $ref_and_cat; ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/css/images/Icon_fullscreen.png" alt="Full Screen">
+    </a>
+</div>
+
                     <div class="photo-info">
                         <span class="photo-title"><?php the_title(); ?></span>
                         <span class="photo-category">
@@ -112,9 +119,4 @@ function custom_theme_scripts() {
 }
 add_action('wp_enqueue_scripts', 'custom_theme_scripts');
 
-// Initialiser le support des menus
-function custom_theme_setup() {
-    add_theme_support('menus');
-    register_nav_menu('primary', 'Menu principal');
-}
-add_action('after_setup_theme', 'custom_theme_setup');
+

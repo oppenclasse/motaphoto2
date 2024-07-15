@@ -43,6 +43,18 @@ a{
 ul{
     list-style-type: none; /* Enlève les puces des listes */
 }
+/* style du h1 */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 .featured-image {
     width: 100%;
     height: 100vh;
@@ -68,6 +80,8 @@ ul{
 .photo-wrapper {
     position: relative;
 }
+
+
 .photo-item img{
     object-fit: cover;
 }
@@ -184,6 +198,8 @@ ul{
 .titre-container h2{
     font-style: italic;
     font-size: 66px;
+    margin: 0;
+    width: 380px;
 }
 
 .photo-container {
@@ -297,6 +313,7 @@ ul{
     border: 1px solid #888;
     width: 600px;
     height: 770px;
+    padding: 0px;
 }
 
 .close {
@@ -312,6 +329,19 @@ ul{
     text-decoration: none;
     cursor: pointer;
 }
+form input, textarea{
+    width: 260px;
+}
+form p{
+    display: flex;
+    flex-direction: column;
+}
+form input[type="submit"] {
+    height: 50px;
+    background-color: #D8D8D8;
+    border: none;
+}
+
 /* style du footer ***********************************************/
 
     .site-footer {
@@ -323,6 +353,7 @@ ul{
     padding: 0 10px; /* Un peu de padding sur les côtés */
     box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur et la hauteur */
     border-top: solid black;
+    text-transform: uppercase; 
 }
 .footer-navigation ul {
 
@@ -373,3 +404,45 @@ ul{
     flex-direction: column;
     align-items: center;
 }
+
+/* style mobile */
+@media (max-width: 768px) {
+    .photo-item {
+        width: 100%; /* Chaque élément prendra toute la largeur */
+        height: 280px;
+    }
+    .photo-gallery{
+        margin: 30px ;
+    }
+    .container{
+        flex-direction: column !important;
+    }
+    .site-footer{
+        height: 210px !important;
+    }
+    .footer-navigation ul{
+        flex-direction: column;
+        gap: 23px;
+        align-items: center;
+    }
+    #sort-filter{
+        margin-left: 0;
+    }
+    .filters {
+        display: flex;
+        flex-direction: column;
+        margin: 30px;
+        height: 180px;
+        justify-content: center;
+        align-items: center;
+        gap: 13px;
+    }
+    .photo-wrapper{
+        height: 100%;
+    }
+    .photo-wrapper img{
+        height: 100%;
+        object-fit: cover;
+    }
+}
+/* ********************************************************************************************************************************************* */

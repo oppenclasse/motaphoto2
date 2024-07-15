@@ -14,6 +14,7 @@ jQuery(document).ready(function($) {
             format: $('#format-filter').val(),
             sort: $('#sort-filter').val()
         };
+        console.log(data)
 
         $.ajax({
             url: ajax_params.ajaxurl,
@@ -55,7 +56,7 @@ jQuery(document).ready(function($) {
     // Quand l'utilisateur clique sur le bouton, ouvrir la modale
     btn.on('click', function(event) {
         event.preventDefault();
-        var reference = "<?php the_field('reference'); ?>"; // Récupérer la valeur de la référence
+        var reference =  btn.data('reference'); // Récupérer la valeur de la référence
         modal.css('display', 'block');
         
         // Ajouter la référence au champ "Réf PHOTO" du formulaire Contact Form 7
@@ -98,4 +99,3 @@ jQuery(document).ready(function($) {
         }
     );
 });
-
