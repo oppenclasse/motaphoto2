@@ -9,7 +9,7 @@
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain: motaphoto
 */
-
+/* style générale *************************************************************/
 
 *{
     font-family: 'Space Mono', monospace;
@@ -18,6 +18,23 @@
 body{
     margin: 0;
     max-width: 1440px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style-type: none; /* Enlève les puces des listes */
+}
+/* style header *******************************************************************************/
+.container-header{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo img{
+    width: 220px;
+    height: 15px;
 }
 .site-navigation{
     text-transform: uppercase;      
@@ -32,17 +49,7 @@ body{
     font-weight: bold; /* Rend le texte plus gras au survol */
 }
 
-.logo img{
-    width: 220px;
-    height: 15px;
-}
-a{
-    text-decoration: none;
-    color: black;
-}
-ul{
-    list-style-type: none; /* Enlève les puces des listes */
-}
+/* Style acceuil ********************************************************************/
 /* style du h1 */
 .visually-hidden {
     position: absolute;
@@ -64,19 +71,30 @@ ul{
 .filters {
     margin: 80px 146px 0 146px;
 }
+.filters select{
+    width: 260px;
+    height: 43px;
+    border-radius: 5px;
+    text-transform: uppercase;  
+}
 
+#sort-filter{
+    margin-left: 160px;
+}
 .photo-gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin: 28px 140px;
 }
+
 .photo-item {
     position: relative;
     width: calc(50% - 10px);
     margin-bottom: 10px;
     overflow: hidden;
 }
+
 .photo-wrapper {
     position: relative;
 }
@@ -159,7 +177,8 @@ ul{
     color: white;           /* Change la couleur du texte en blanc */
 }
 
-/* style single */
+
+/* style single *******************************************************************/
 #primary{
     margin: 0 140px;
 }
@@ -176,8 +195,7 @@ ul{
     gap: 10px;
 }
 .related-photos > div {
-    flex: 1 1 50%; /* Utilise flex-grow, flex-shrink et flex-basis */
-    /* Si vous ne voulez pas qu'ils grandissent ou rétrécissent, vous pouvez simplement utiliser */
+
     width: 50%; /* Assure que chaque div prend exactement 50% */
 }
 
@@ -361,7 +379,7 @@ form input[type="submit"] {
     margin: 0; /* Enlève la marge par défaut des listes */
     display: flex; /* Utiliser Flexbox dans la liste */
 }
-.container{
+.container-footer{
     display:flex;
     align-items: center;
     justify-content: space-around;
@@ -379,14 +397,9 @@ form input[type="submit"] {
     margin-right: 20px; /* Ajoute de la marge à droite de chaque lien */
 }
 
-/* style section filtre************************************/
 
-.filters select{
-    width: 260px;
-    height: 43px;
-    border-radius: 5px;
-    text-transform: uppercase;  
-}
+
+
 .photo-wrapper img{
     width:100% ;
     height: 495px;
@@ -395,9 +408,7 @@ form input[type="submit"] {
     width: 15px;
     height: 15px;
 }
-#sort-filter{
-    margin-left: 160px;
-}
+
 
 .modal-content form {
     display: flex;
@@ -414,7 +425,7 @@ form input[type="submit"] {
     .photo-gallery{
         margin: 30px ;
     }
-    .container{
+    .container-footer{
         flex-direction: column !important;
     }
     .site-footer{
@@ -424,6 +435,9 @@ form input[type="submit"] {
         flex-direction: column;
         gap: 23px;
         align-items: center;
+    }
+    .footer-navigation li{
+        margin-right: 0;
     }
     #sort-filter{
         margin-left: 0;
