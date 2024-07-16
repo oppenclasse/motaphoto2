@@ -38,12 +38,16 @@ ul{
 }
 .site-navigation{
     text-transform: uppercase;      
-    width: 400px;                            
+    width: 400px;   
+    display: flex;                         
 }
 
 .site-navigation ul {
     display: flex;
     justify-content: space-around;
+}
+.site-navigation ul li{
+    margin-left: 40px;
 }
 .site-navigation ul li a:hover {
     font-weight: bold; /* Rend le texte plus gras au survol */

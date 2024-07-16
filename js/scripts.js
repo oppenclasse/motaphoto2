@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
             page: page,
             categorie: $('#categorie-filter').val(),
             format: $('#format-filter').val(),
-            sort: $('#sort-filter').val()
+            sort: $('#year-sort-filter').val()
         };
         console.log(data)
 
@@ -37,11 +37,12 @@ jQuery(document).ready(function($) {
         loadPosts();
     });
 
-    $('#categorie-filter, #format-filter, #sort-filter').on('change', function() {
-        $('#photo-gallery').html('');
-        page = 1;
-        loadPosts();
+    $('#categorie-filter, #format-filter, #year-sort-filter').on('change', function() {
+        $('#photo-gallery').html(''); // Efface le contenu actuel de la galerie
+        page = 1; // Réinitialise la pagination à la première page
+        loadPosts(); // Charge les posts avec les nouveaux critères
     });
+    
 
     // Initial load
     loadPosts();
@@ -50,13 +51,13 @@ jQuery(document).ready(function($) {
 // single
 jQuery(document).ready(function($) {
     var modal = $('#contactModal');
-    var btn = $('#contact-link');
+    var btns = $('#contact-link, #acontact-link');
     var span = $('.close')[0];
 
     // Quand l'utilisateur clique sur le bouton, ouvrir la modale
-    btn.on('click', function(event) {
+    btns.on('click', function(event) {
         event.preventDefault();
-        var reference =  btn.data('reference'); // Récupérer la valeur de la référence
+        var reference =  $(this).data('reference'); // Récupérer la valeur de la référence
         modal.css('display', 'block');
         
         // Ajouter la référence au champ "Réf PHOTO" du formulaire Contact Form 7

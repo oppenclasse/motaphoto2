@@ -18,7 +18,7 @@
     <?php
     // Affichage de l'image à la une
     if (has_post_thumbnail()) {
-        $reference = get_field('reference'); // Assurez-vous que le champ s'appelle 'reference'
+        $reference = get_field('reference');
         $categories = get_the_terms(get_the_ID(), 'categorie');
         $categorie_names = $categories ? wp_list_pluck($categories, 'name') : [];
         $data_category = esc_attr(implode(', ', $categorie_names));
@@ -59,7 +59,7 @@
         ?>
     </select>
 
-    <select id="sort-filter">
+    <select id="year-sort-filter">
         <option value="DESC">Plus récent au plus ancien</option>
         <option value="ASC">Plus ancien au plus récent</option>
     </select>

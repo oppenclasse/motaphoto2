@@ -21,11 +21,24 @@
                 'menu_class'     => 'navigation',
             ));
             ?>
+            <a href="#" id="acontact-link" class="btn-contact-acceuil">Contact</a>
         </nav>
     </div>
 </header>
 
 <style>
+    .btn-contact-acceuil{
+        display: flex;
+        align-items: center;
+        margin-left:40px;
+
+}
+    .btn-contact-acceuil:hover{
+        font-weight: bold;
+    }
+    .menu-toggle{
+        display: none;
+    }
 @media (max-width: 768px) {
     .container-header{
         justify-content: space-between;
@@ -40,7 +53,6 @@
     }
     .site-navigation {
         display: none; /* Cache la navigation principale sur mobile */
-       
         height: 100vh; /* Pleine hauteur */
         position: fixed; /* Fixe le menu sur l'écran */
         top: 115px;
@@ -50,6 +62,25 @@
         align-items: center;
         flex-direction: column; /* Alignement vertical des liens */
         z-index: 1000; /* S'assure que le menu est au-dessus des autres éléments */
+    }
+    .site-navigation ul{
+        margin-top:0;
+        justify-content: flex-start;
+    }
+    .site-navigation ul li{
+        margin: 0 0 30px 0;
+    }
+    .btn-contact-acceuil{
+    width: 193PX;
+    margin: 0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 44px;
+}
+    .menu-menu-principal-container{
+        height:150px;
     }
     .navigation{
         display:flex;
@@ -79,6 +110,28 @@
     .menu-toggle.close {
         content: '✖'; /* Icône de fermeture */
     }
+    .modal-content {
+        width: 90%; /* Plus large pour les petits écrans */
+        margin: 20% auto; /* Ajuste le pourcentage pour positionner la modal plus haut ou plus bas */
+        padding: 10px; /* Moins de padding pour économiser de l'espace */
+    }
+
+    /* Optionnel: Si tu souhaites aussi réduire la taille du texte */
+    .modal-content p, .modal-content label, .modal-content input, .modal-content textarea {
+        font-size: 14px; /* Réduit la taille de la police */
+    }
+
+
+/* Assure-toi que la modal elle-même couvre tout l'écran pour bloquer le contenu derrière */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
 }
 </style>
 <script>

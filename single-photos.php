@@ -150,7 +150,7 @@
         width: 265px;
         }
     #primary {
-        margin: 0px 55px;
+        margin: 0px;
     }
     .titre-container {
         width: 100%;
@@ -158,6 +158,12 @@
     } 
     .photo-container {
     width: 100%;
+    margin-left:55px
+    }
+    .contact {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 51px;
     }
     .contact-interesse{
         flex-direction: column;
