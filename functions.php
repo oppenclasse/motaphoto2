@@ -22,8 +22,8 @@ add_action('after_setup_theme', 'custom_theme_setup');
 function enqueue_custom_scripts() {
     wp_enqueue_style('theme-style', get_stylesheet_uri());
     wp_enqueue_script('jquery');
-    wp_enqueue_script('custom-functions', get_template_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
-    wp_localize_script('custom-functions', 'ajax_params', array(
+    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
+    wp_localize_script('custom-scripts', 'ajax_params', array(
         'ajaxurl' => admin_url('admin-ajax.php') // Localisation de l'URL AJAX
     ));
 }
@@ -74,18 +74,19 @@ function load_photos() {
                     if (has_post_thumbnail()) {
                         the_post_thumbnail('full', array('class' => 'gallery-image'));
                     }
-                    $reference = get_field('reference');
-                    $categories = get_the_terms(get_the_ID(), 'categorie');
-                    $category_names = wp_list_pluck($categories, 'name');
                     ?>
+<?php
+$ref = get_field('reference');
+$category_names = wp_list_pluck(get_the_terms(get_the_ID(), 'categorie'), 'name');
+$ref_and_cat = '<span>' . esc_attr($ref) . '</span> <span>' . esc_attr(implode(', ', $category_names)) . '</span>';
+?>
                     <div class="overlay">
                         <a href="<?php the_permalink(); ?>" class="icon-eye">
                             <img src="<?php echo get_template_directory_uri(); ?>/css/images/Icon_eye.png" alt="Détails de la vue">
                         </a>
                         <a href="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>" class="icon-fullscreen"
                             data-lightbox="gallery"
-                            data-reference="<?php echo esc_attr($reference); ?>"
-                            data-category="<?php echo esc_attr(implode(', ', $category_names)); ?>">
+                            data-reference="<?php echo $ref_and_cat; ?>">
                             <img src="<?php echo get_template_directory_uri(); ?>/css/images/Icon_fullscreen.png" alt="Plein écran">
                         </a>
                     </div>

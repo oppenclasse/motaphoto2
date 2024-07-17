@@ -274,12 +274,12 @@ ul{
     position: relative;
     padding: 10px;
 }
-
+ 
 .thumbnail-preview {
     display: none;
     position: absolute;
     bottom: 90%;
-    left: 97%;
+    left: 25%;
     transform: translateX(-50%);
     width: 81px;
     height: 71px;

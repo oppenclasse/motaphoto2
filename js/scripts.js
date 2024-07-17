@@ -48,7 +48,7 @@ jQuery(document).ready(function($) {
     loadPosts();
 });
 
-// single
+// single-photo
 jQuery(document).ready(function($) {
     var modal = $('#contactModal');
     var btns = $('#contact-link, #acontact-link');
