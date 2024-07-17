@@ -52,6 +52,18 @@ ul{
 .site-navigation ul li a:hover {
     font-weight: bold; /* Rend le texte plus gras au survol */
 }
+.btn-contact-acceuil{
+    display: flex;
+    align-items: center;
+    margin-left:40px;
+
+}
+.btn-contact-acceuil:hover{
+    font-weight: bold;
+}
+.menu-toggle{
+    display: none;
+}
 
 /* Style acceuil ********************************************************************/
 /* style du h1 */
@@ -180,6 +192,33 @@ ul{
     background-color: black; /* Change la couleur de fond en noir */
     color: white;           /* Change la couleur du texte en blanc */
 }
+.select2-container--default .select2-selection--single {
+    height: 38px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #FFD6D6 !important;
+    color: white;
+}
+
+.select2-results__option--clicked {
+    background-color: #FE5858 !important;
+    color: white;
+}
+
+.select2-results__option--selected {
+    background-color: #E00000 !important;
+    color: white;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: black;
+    line-height: 36px;
+}
 
 
 /* style single *******************************************************************/
@@ -219,7 +258,7 @@ ul{
 }
 .titre-container h2{
     font-style: italic;
-    font-size: 66px;
+    font-size: 46px;
     margin: 0;
     width: 380px;
 }
@@ -408,11 +447,15 @@ form input[type="submit"] {
     width:100% ;
     height: 495px;
 }
-.overlay img{
-    width: 15px;
-    height: 15px;
+.icon-eye img{
+    width: 46px;
+    height: 31px;
 }
 
+.icon-fullscreen img{
+    width: 34px;
+    height: 34px;
+}
 
 .modal-content form {
     display: flex;
@@ -462,5 +505,145 @@ form input[type="submit"] {
         height: 100%;
         object-fit: cover;
     }
+    /* style menus berger ******************************************************************************/
+    .container-header{
+        justify-content: space-between;
+        margin-left: 20px;
+        height: 72px;
+    }
+    .logo {
+        width: 138px; /* Ajustez la taille du logo sur mobile */
+    }
+    .logo img {
+        width: 100%; /* Assure que l'image du logo est responsive */
+    }
+    .site-navigation {
+        display: none; /* Cache la navigation principale sur mobile */
+        height: 100vh; /* Pleine hauteur */
+        position: fixed; /* Fixe le menu sur l'écran */
+        top: 115px;
+        left: 0;
+        background-color: #E00000; /* Fond rouge */
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Alignement vertical des liens */
+        z-index: 1000; /* S'assure que le menu est au-dessus des autres éléments */
+    }
+    .site-navigation ul{
+        margin-top:0;
+        justify-content: flex-start;
+    }
+    .site-navigation ul li{
+        margin: 0 0 30px 0;
+    }
+    .btn-contact-acceuil{
+    width: 193PX;
+    margin: 0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 44px;
 }
+    .menu-menu-principal-container{
+        height:150px;
+    }
+    .navigation{
+        display:flex;
+        flex-direction:column;
+        width: 220px;
+        height: 200px;
+        font-size:44px;
+        color: #FFFFFF;
+        padding-left:0;
+        align-items: center;
+    }
+    .navigation a{
+        color:#FFFFFF;
+    }
+    .site-navigation.active {
+        display: flex; /* Affiche la navigation lorsque le menu est actif */
+    }
+    .menu-toggle {
+        display: block; /* Affiche l'icône du menu burger */
+        position: absolute;
+        top: 65px; /* Positionne l'icône */
+        right: 45px;
+        cursor: pointer; /* Indique qu'il est cliquable */
+        z-index: 1001; /* S'assure que l'icône est au-dessus du menu */
+        font-size: x-large;
+    }
+    .menu-toggle.close {
+        content: '✖'; /* Icône de fermeture */
+    }
+    .modal-content {
+        width: 90%; /* Plus large pour les petits écrans */
+        margin: 20% auto; /* Ajuste le pourcentage pour positionner la modal plus haut ou plus bas */
+        padding: 10px; /* Moins de padding pour économiser de l'espace */
+    }
+
+    /* Modifier la taille du texte */
+    .modal-content p, .modal-content label, .modal-content input, .modal-content textarea {
+        font-size: 14px; /* Réduit la taille de la police */
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    /* version mobile singe-photo********************/
+    .titre-photo-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        width: 265px;
+        }
+    #primary {
+        margin: 0px;
+    }
+    .titre-container {
+        width: 100%;
+        padding:50px
+    } 
+    .photo-container {
+    width: 100%;
+    margin-left:55px
+    }
+    .contact {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 51px;
+    }
+    .contact-interesse{
+        flex-direction: column;
+        width:100%;
+    }
+    .contact-interesse .btn{
+        margin-left: 0;
+    }
+    .nav-links{
+        display: none;
+    }
+    .related-titre {
+    margin: 0 ;
+    display: flex;
+    justify-content: center;
+    }
+    .related-photos {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 40px;
+    gap: 10px;
+    }
+    .related-photos > div {
+    width: 100%;
+    height: 280px;
+    }
+}
+
 /* ********************************************************************************************************************************************* */

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<!-- Ce fichier single-photo.php est conçu pour afficher des détails sur des photos individuelles dans un thème WordPress, avec des champs personnalisés, navigation entre photos, et une section pour des photos similaires. Chaque section est commentée pour expliquer son rôle dans la mise en page. -->
 <div id="primary">
     <div class="titre-photo-container">
         <div class="titre-container">
@@ -140,55 +140,3 @@
     ?>
 </div>
 <?php get_footer(); ?>
-<style>
-
-@media (max-width: 768px) {
-    .titre-photo-container {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: space-between;
-        width: 265px;
-        }
-    #primary {
-        margin: 0px;
-    }
-    .titre-container {
-        width: 100%;
-        padding:50px
-    } 
-    .photo-container {
-    width: 100%;
-    margin-left:55px
-    }
-    .contact {
-    display: flex;
-    justify-content: space-between;
-    margin: 50px 51px;
-    }
-    .contact-interesse{
-        flex-direction: column;
-        width:100%;
-    }
-    .contact-interesse .btn{
-        margin-left: 0;
-    }
-    .nav-links{
-        display: none;
-    }
-    .related-titre {
-    margin: 0 ;
-    display: flex;
-    justify-content: center;
-    }
-    .related-photos {
-    display: flex;
-    flex-direction: column;
-    margin: 30px 40px;
-    gap: 10px;
-    }
-    .related-photos > div {
-    width: 100%;
-    height: 280px;
-    }
-}
-</style>

@@ -37,7 +37,7 @@
 </div>
 
 <div class="filters">
-    <select id="categorie-filter">
+    <select class="custom-select" id="categorie-filter">
         <option value="">catégorie</option>
         <?php
         // Récupération des catégories pour les filtres
@@ -48,7 +48,7 @@
         ?>
     </select>
 
-    <select id="format-filter">
+    <select class="custom-select" id="format-filter">
         <option value="">format</option>
         <?php
         // Récupération des formats pour les filtres
@@ -59,7 +59,7 @@
         ?>
     </select>
 
-    <select id="year-sort-filter">
+    <select class="custom-select" id="year-sort-filter">
         <option value="DESC">Plus récent au plus ancien</option>
         <option value="ASC">Plus ancien au plus récent</option>
     </select>
@@ -70,48 +70,6 @@
 </div>
 
 <button id="load-more">Charger plus</button>
-<style>
-/* Style par défaut du menu déroulant */
-select {
-    width: 100%;
-    padding: 8px;
-    background-color: white; /* Fond blanc par défaut */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Style au survol des options */
-select option:hover {
-    background-color: #FFD6D6; /* Fond rose au survol */
-}
-
-/* Style pour un select ayant une option sélectionnée */
-.select-colored {
-    background-color: #E00000; /* Fond rouge lorsque une option est sélectionnée */
-    color: white; /* Texte blanc pour une meilleure lisibilité */
-}
 
 
-</style>
-<script>
-jQuery(document).ready(function($) {
-    // Détecte les changements sur les éléments <select>
-    $('select').on('change', function() {
-        if (this.value) { // Vérifie si une valeur est sélectionnée
-            $(this).addClass('select-colored'); // Applique la classe pour changer la couleur de fond
-        } else {
-            $(this).removeClass('select-colored'); // Retire la classe si aucune option n'est sélectionnée
-        }
-    });
-
-    // Applique le style de survol au survoler les options
-    $('select option').on('mouseenter', function() {
-        $(this).css('background-color', '#FFD6D6'); // Fond rose au survol
-    }).on('mouseleave', function() {
-        $(this).css('background-color', ''); // Retire le style de survol
-    });
-});
-
-</script>
 <?php get_footer(); ?>
