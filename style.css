@@ -578,8 +578,8 @@ form input[type="submit"] {
         content: '✖'; /* Icône de fermeture */
     }
     .modal-content {
-        width: 70%; /* Plus large pour les petits écrans */
-        height: 80%;
+        width: 87%; /* Plus large pour les petits écrans */
+        height: 68%;
         margin: 20% auto; /* Ajuste le pourcentage pour positionner la modal plus haut ou plus bas */
         
     }
