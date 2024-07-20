@@ -467,6 +467,9 @@ form input[type="submit"] {
         width: 100%; /* Chaque élément prendra toute la largeur */
         height: 280px;
     }
+    .featured-image{
+        height: 265px ;
+    }
     .photo-gallery{
         margin: 30px ;
     }
@@ -575,9 +578,10 @@ form input[type="submit"] {
         content: '✖'; /* Icône de fermeture */
     }
     .modal-content {
-        width: 90%; /* Plus large pour les petits écrans */
+        width: 70%; /* Plus large pour les petits écrans */
+        height: 80%;
         margin: 20% auto; /* Ajuste le pourcentage pour positionner la modal plus haut ou plus bas */
-        padding: 10px; /* Moins de padding pour économiser de l'espace */
+        
     }
 
     /* Modifier la taille du texte */
