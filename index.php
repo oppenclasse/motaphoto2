@@ -1,34 +1,42 @@
 <?php get_header(); ?>
-<h1 class="visually-hidden">Mota Photo</h1>
 
 <div class="photo-posts">
     <?php
-    // Requête pour récupérer les photos
+    // Requête pour récupérer toutes les photos
     $args = array(
         'post_type' => 'photos', // Type de contenu personnalisé
-        'posts_per_page' => 1, // Nombre de posts par page
+        'posts_per_page' => -1, // Récupère tous les posts
     );
     $photo_query = new WP_Query($args);
 
-    // Boucle pour afficher les photos
+    // Vérifiez s'il y a des photos
     if ($photo_query->have_posts()) :
-        while ($photo_query->have_posts()) : $photo_query->the_post();
-            ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        // Récupérez tous les posts dans un tableau
+        $photos = $photo_query->posts;
+        // Sélectionnez une photo aléatoire
+        $random_photo = $photos[array_rand($photos)];
+
+        // Préparez les données de la photo aléatoire
+        setup_postdata($random_photo);
+        ?>
+<article id="post-<?php echo $random_photo->ID; ?>" <?php post_class('photo-article', $random_photo->ID); ?>>
     <?php
-    // Affichage de l'image à la une
-    if (has_post_thumbnail()) {
-        $reference = get_field('reference');
-        $categories = get_the_terms(get_the_ID(), 'categorie');
+    // Affichage de l'image à la une de la photo aléatoire
+    if (has_post_thumbnail($random_photo->ID)) {
+        $reference = get_field('reference', $random_photo->ID);
+        $categories = get_the_terms($random_photo->ID, 'categorie');
         $categorie_names = $categories ? wp_list_pluck($categories, 'name') : [];
         $data_category = esc_attr(implode(', ', $categorie_names));
-        the_post_thumbnail('full', array('class' => 'featured-image', 'data-reference' => $reference, 'data-category' => $data_category));
+        echo get_the_post_thumbnail($random_photo->ID, 'full', array('class' => 'featured-image', 'data-reference' => $reference, 'data-category' => $data_category));
     }
     ?>
+    <!-- Ajout de l'image PNG en tant que titre -->
+    <div class="title-header">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/Titre-header.png" alt="PHOTOGRAPHE EVENT">
+    </div>
 </article>
-
-            <?php
-        endwhile;
+        <?php
+        // Réinitialisez les données de post
         wp_reset_postdata();
     else :
         echo '<p>Aucune photo trouvée.</p>'; // Message si aucune photo n'est trouvée

@@ -75,8 +75,31 @@ ul{
     border: 0;
 }
 
+.photo-article {
+    position: relative;
+    display: inline-block;
+}
+
 .featured-image {
+    display: block;
+}
+
+.title-header {
+    position: absolute;
     width: 100%;
+    top: 65%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.title-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+.featured-image {
+    width: 100vw;
     height: 100vh;
     object-fit: cover;
 }
@@ -466,6 +489,9 @@ form input[type="submit"] {
     .photo-item {
         width: 100%; /* Chaque élément prendra toute la largeur */
         height: 280px;
+    }
+    .title-header{
+        left: 50%;
     }
     .featured-image{
         height: 265px ;
