@@ -26,7 +26,7 @@
             ?>
             <!-- Afficher le champ "Type" -->
             <p><strong>Type :</strong> <?php the_field('type'); ?></p>
-            <p><strong>Année :</strong> <?php the_field('annee'); ?></p>
+            <p><strong>Année :</strong> <?php echo get_the_date('Y'); ?></p>
         </div>
         <!-- Afficher la photo associée -->
         <div class="photo-container">
@@ -37,7 +37,7 @@
                 echo '<p>No featured image found.</p>'; // Message si aucune image mise en avant n'est trouvée
             endif;
         ?>
-    </div>
+    </div> 
 
     </div><!-- Fin de la classe titre-photo-container -->
 

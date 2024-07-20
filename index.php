@@ -57,7 +57,7 @@
             echo '<option value="' . $format->slug . '">' . $format->name . '</option>';
         }
         ?>
-    </select>
+    </select> 
 
     <select class="custom-select" id="year-sort-filter">
         <option value="DESC">Plus récent au plus ancien</option>

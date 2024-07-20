@@ -15,10 +15,7 @@
     font-family: 'Space Mono', monospace;
 }
 
-body{
-    margin: 0;
-    max-width: 1440px;
-}
+
 a{
     text-decoration: none;
     color: black;
@@ -446,6 +443,7 @@ form input[type="submit"] {
 .photo-wrapper img{
     width:100% ;
     height: 495px;
+    object-fit: cover;
 }
 .icon-eye img{
     width: 46px;
